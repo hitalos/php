@@ -10,7 +10,7 @@ This image it's for development. **Optimize to use in production!**
 * [**`debian`**](https://github.com/hitalos/php/blob/debian/Dockerfile): For more complex projects. This larger image brings compilers and other packages.
 
 ## Versions
-* `php` 7.2.6
+* `php` 7.2.7
   * `composer` 1.6.5
 
 ## Supported Databases (**PDO**)
