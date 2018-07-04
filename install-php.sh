@@ -47,5 +47,8 @@ php -r "readfile('https://getcomposer.org/installer');" | php && \
 
 apt-get purge -y $TMP
 
+# Install PHPUnit
+curl -sSL -o /usr/bin/phpunit https://phar.phpunit.de/phpunit.phar && chmod +x /usr/bin/phpunit
+
 # Set timezone
 # RUN echo America/Maceio > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
