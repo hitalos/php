@@ -12,6 +12,7 @@ This image it's for development. **Optimize to use in production!**
 ## Versions
 * `php` 7.2.7
   * `composer` 1.6.5
+  * `phpunit` 7.2.6
 
 ## Supported Databases (**PDO**)
 * `mssql` (via dblib)
