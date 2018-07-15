@@ -1,6 +1,9 @@
 #!/bin/sh
 
-TMP="freetds-dev \
+TMP="autoconf \
+    freetds-dev \
+    g++ \
+    gcc \
     libcrypto++-dev \
     libfreetype6-dev \
     libicu-dev \
@@ -10,7 +13,8 @@ TMP="freetds-dev \
     libpng-dev \
     libpq-dev \
     libwebp-dev \
-    libxml2-dev"
+    libxml2-dev \
+    make"
 apt-get install -y freetds-bin $TMP
 
 # Configure extensions
@@ -44,6 +48,13 @@ mkdir -p /etc/ssl/certs && update-ca-certificates
 php -r "readfile('https://getcomposer.org/installer');" | php && \
    mv composer.phar /usr/bin/composer && \
    chmod +x /usr/bin/composer
+
+# Install Xdebug
+XDEBUG_VERSION=2.6.0
+curl -sSL -o /tmp/xdebug-${XDEBUG_VERSION}.tgz http://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz
+cd /tmp && tar -xzf xdebug-${XDEBUG_VERSION}.tgz && cd xdebug-${XDEBUG_VERSION} && phpize && ./configure && make && make install
+echo "zend_extension=xdebug" > /usr/local/etc/php/conf.d/xdebug.ini
+rm -rf /tmp/xdebug*
 
 apt-get purge -y $TMP
 
