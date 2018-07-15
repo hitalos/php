@@ -2,9 +2,12 @@
 
 apk add freetds freetype icu libintl libldap libjpeg libmcrypt libpng libpq libwebp
 
-TMP="curl-dev \
+TMP="autoconf \
+    curl-dev \
     freetds-dev \
     freetype-dev \
+    g++ \
+    gcc \
     gettext-dev \
     icu-dev \
     jpeg-dev \
@@ -12,6 +15,7 @@ TMP="curl-dev \
     libpng-dev \
     libwebp-dev \
     libxml2-dev \
+    make \
     openldap-dev \
     postgresql-dev"
 apk add $TMP
@@ -48,6 +52,13 @@ mkdir -p /etc/ssl/certs && update-ca-certificates
 php -r "readfile('https://getcomposer.org/installer');" | php && \
    mv composer.phar /usr/bin/composer && \
    chmod +x /usr/bin/composer
+
+# Install Xdebug
+XDEBUG_VERSION=2.6.0
+curl -sSL -o /tmp/xdebug-${XDEBUG_VERSION}.tgz http://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz
+cd /tmp && tar -xzf xdebug-${XDEBUG_VERSION}.tgz && cd xdebug-${XDEBUG_VERSION} && phpize && ./configure && make && make install
+echo "zend_extension=xdebug" > /usr/local/etc/php/conf.d/xdebug.ini
+rm -rf /tmp/xdebug*
 
 apk del $TMP
 
