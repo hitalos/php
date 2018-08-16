@@ -11,9 +11,9 @@ This image it's for development. **Optimize to use in production!**
 
 ## Versions
 * `php` 7.2.8
-  * `composer` 1.6.5
-  * `phpunit` 7.2.7
-  * `xdebug` 2.6.0
+  * `composer` 1.7.1
+  * `phpunit` 7.3.1
+  * `xdebug` 2.6.1
 
 ## Supported Databases (**PDO**)
 * `mssql` (via dblib)
