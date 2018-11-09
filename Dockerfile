@@ -5,6 +5,7 @@ RUN apk update && apk upgrade && apk add bash git
 
 # Install PHP extensions
 ADD install-php.sh /usr/sbin/install-php.sh
+ENV XDEBUG_VERSION 2.6.1
 RUN /usr/sbin/install-php.sh
 
 RUN mkdir -p /etc/ssl/certs && update-ca-certificates
