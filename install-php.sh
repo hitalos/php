@@ -26,10 +26,16 @@ docker-php-ext-configure ldap --with-libdir=lib/
 docker-php-ext-configure pdo_dblib --with-libdir=lib/
 
 # Download mongo extension
-/usr/local/bin/pecl download mongodb && \
-    tar -C /usr/src/php/ext -xf mongo*.tgz && \
-    rm mongo*.tgz && \
-    mv /usr/src/php/ext/mongo* /usr/src/php/ext/mongodb
+cd /tmp && \
+    git clone https://github.com/mongodb/mongo-php-driver.git && \
+    cd mongo-php-driver && \
+    git submodule update --init && \
+    phpize && \
+    ./configure --with-mongodb-ssl=libressl && \
+    make all && \
+    make install && \
+    echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini && \
+    rm -rf /tmp/mongo-php-driver
 
 docker-php-ext-install \
     curl \
@@ -38,7 +44,6 @@ docker-php-ext-install \
     gettext \
     intl \
     ldap \
-    mongodb \
     pdo_dblib \
     pdo_mysql \
     pdo_pgsql \
