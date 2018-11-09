@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apk add freetds freetype icu libintl libldap libjpeg libmcrypt libpng libpq libwebp
+apk add file re2c freetds freetype icu libintl libldap libjpeg libmcrypt libpng libpq libwebp
 
 TMP="autoconf \
     curl-dev \
@@ -54,7 +54,7 @@ docker-php-ext-install \
 mkdir -p /etc/ssl/certs && update-ca-certificates
 
 # Install composer
-php -r "readfile('https://getcomposer.org/installer');" | php && \
+cd /tmp && php -r "readfile('https://getcomposer.org/installer');" | php && \
    mv composer.phar /usr/bin/composer && \
    chmod +x /usr/bin/composer
 
