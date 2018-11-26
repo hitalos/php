@@ -1,7 +1,11 @@
 FROM php:alpine
 LABEL maintainer="hitalos <hitalos@gmail.com>"
 
-RUN apk update && apk upgrade && apk add bash git
+# Comment this to improve stability on "auto deploy" environments
+RUN apk update && apk upgrade
+
+# Install basic dependencies
+RUN apk -u add bash git
 
 # Install PHP extensions
 ADD install-php.sh /usr/sbin/install-php.sh
