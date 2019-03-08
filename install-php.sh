@@ -1,9 +1,9 @@
 #!/bin/sh
 
-apk add file re2c freetds freetype icu libintl libldap libjpeg libmcrypt libpng libpq libwebp
+apk add bzip2 file re2c freetds freetype icu libintl libldap libjpeg libmcrypt libpng libpq libwebp libzip
 
 TMP="autoconf \
-    curl-dev \
+    bzip2-dev \
     freetds-dev \
     freetype-dev \
     g++ \
@@ -15,6 +15,7 @@ TMP="autoconf \
     libpng-dev \
     libwebp-dev \
     libxml2-dev \
+    libzip-dev \
     make \
     openldap-dev \
     postgresql-dev"
@@ -31,14 +32,14 @@ cd /tmp && \
     cd mongo-php-driver && \
     git submodule update --init && \
     phpize && \
-    ./configure --with-mongodb-ssl=libressl && \
+    ./configure && \
     make all && \
     make install && \
     echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongodb.ini && \
     rm -rf /tmp/mongo-php-driver
 
 docker-php-ext-install \
-    curl \
+    bz2 \
     exif \
     gd \
     gettext \
@@ -55,8 +56,8 @@ mkdir -p /etc/ssl/certs && update-ca-certificates
 
 # Install composer
 cd /tmp && php -r "readfile('https://getcomposer.org/installer');" | php && \
-   mv composer.phar /usr/bin/composer && \
-   chmod +x /usr/bin/composer
+	mv composer.phar /usr/bin/composer && \
+	chmod +x /usr/bin/composer
 
 # Install Xdebug
 curl -sSL -o /tmp/xdebug-${XDEBUG_VERSION}.tgz http://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz
