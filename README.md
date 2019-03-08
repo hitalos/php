@@ -10,10 +10,10 @@ This image it's for development. **Optimize to use in production!**
 * [**`debian`**](https://github.com/hitalos/php/blob/debian/Dockerfile): For more complex projects. This larger image brings compilers and other packages.
 
 ## Versions
-* `php` 7.2.12
-  * `composer` 1.7.3
-  * `phpunit` 7.4.3
-  * `xdebug` 2.6.1
+* `php` 7.3.2
+  * `composer` 1.8.4
+  * `phpunit` 8.0.4
+  * `xdebug` 2.7.0
 
 ## Supported Databases (**PDO**)
 * `mssql` (via dblib)
