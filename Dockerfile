@@ -5,11 +5,11 @@ LABEL maintainer="hitalos <hitalos@gmail.com>"
 RUN apk update && apk upgrade
 
 # Install basic dependencies
-RUN apk -u add bash git
+RUN apk -u add git
 
 # Install PHP extensions
 ADD install-php.sh /usr/sbin/install-php.sh
-ENV XDEBUG_VERSION 2.8.0
+ENV XDEBUG_VERSION 2.9.2
 RUN /usr/sbin/install-php.sh
 
 RUN mkdir -p /etc/ssl/certs && update-ca-certificates
