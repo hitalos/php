@@ -39,6 +39,7 @@ cd /tmp && \
     rm -rf /tmp/mongo-php-driver
 
 docker-php-ext-install \
+    bcmath \
     bz2 \
     exif \
     gd \
