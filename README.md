@@ -13,8 +13,8 @@ This image it's for development. **Optimize to use in production!**
 
 ## Versions
 
-* `php` 8.0.3
-  * `composer` 2.0.12
+* `php` 8.0.6
+  * `composer` 2.0.13
   * `phpunit` 9.5.4
   * `xdebug` 3.0.4
 
