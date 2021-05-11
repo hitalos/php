@@ -35,13 +35,17 @@ This image it's for development. **Optimize to use in production!**
 
 ## Installing
 
-    docker pull hitalos/php
+```shell
+docker pull hitalos/php
+```
 
 ## Using
 
 ### With `docker`
 
-    docker run --name <container_name> -d -v $PWD:/var/www -p 80:80 hitalos/php
+```shell
+docker run --name <container_name> -d -v $PWD:/var/www -p 80:80 hitalos/php
+```
 
 Where $PWD is the project folder.
 
@@ -63,7 +67,9 @@ services:
 
 Then run using this command:
 
-    docker-compose up
+```shell
+docker-compose up
+```
 
 If you want to use a database, you can create your `docker-compose.yml` with two containers.
 
