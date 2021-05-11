@@ -47,6 +47,7 @@ docker-php-ext-install \
     pdo_dblib \
     pdo_mysql \
     pdo_pgsql \
+    xmlrpc \
     zip
 
 # Download trusted certs 

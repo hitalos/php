@@ -1,4 +1,4 @@
-FROM php:alpine
+FROM php:7-alpine
 LABEL maintainer="hitalos <hitalos@gmail.com>"
 
 # Comment this to improve stability on "auto deploy" environments
