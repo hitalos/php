@@ -9,7 +9,6 @@ RUN apk -u add git
 
 # Install PHP extensions
 ADD install-php.sh /usr/sbin/install-php.sh
-ENV XDEBUG_VERSION 3.0.4
 RUN /usr/sbin/install-php.sh
 
 RUN mkdir -p /etc/ssl/certs && update-ca-certificates

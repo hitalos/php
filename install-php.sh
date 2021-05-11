@@ -58,10 +58,8 @@ cd /tmp && php -r "readfile('https://getcomposer.org/installer');" | php && \
 	chmod +x /usr/bin/composer
 
 # Install Xdebug
-curl -sSL -o /tmp/xdebug-${XDEBUG_VERSION}.tgz http://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz
-cd /tmp && tar -xzf xdebug-${XDEBUG_VERSION}.tgz && cd xdebug-${XDEBUG_VERSION} && phpize && ./configure && make && make install
+pecl install xdebug
 echo "zend_extension=xdebug" > /usr/local/etc/php/conf.d/xdebug.ini
-rm -rf /tmp/xdebug*
 
 apk del $TMP
 
