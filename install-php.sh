@@ -22,9 +22,7 @@ TMP="autoconf \
 apk add $TMP
 
 # Configure extensions
-docker-php-ext-configure gd --with-jpeg-dir=usr/ --with-freetype-dir=usr/ --with-webp-dir=usr/
-docker-php-ext-configure ldap --with-libdir=lib/
-docker-php-ext-configure pdo_dblib --with-libdir=lib/
+docker-php-ext-configure gd --with-jpeg --with-freetype --with-webp
 
 # Download mongo extension
 cd /tmp && \
@@ -49,7 +47,6 @@ docker-php-ext-install \
     pdo_dblib \
     pdo_mysql \
     pdo_pgsql \
-    xmlrpc \
     zip
 
 # Download trusted certs 
