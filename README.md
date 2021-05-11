@@ -9,7 +9,8 @@ This image it's for development. **Optimize to use in production!**
 ## Tags
 
 * [**`latest`**](https://github.com/hitalos/php/blob/master/Dockerfile): For simple projects with faster deploy.
-* [**`debian`**](https://github.com/hitalos/php/blob/debian/Dockerfile): For more complex projects. This larger image brings compilers and other packages.
+* [**`php7`**](https://github.com/hitalos/php/blob/php7/Dockerfile): For projects that ain't update to PHP8.
+* **`v7, v8, v*…`**: For specific previous build versions.
 
 ## Versions
 
